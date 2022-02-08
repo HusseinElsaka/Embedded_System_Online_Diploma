@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : C Program to Find ASCII Value of a Character
+ Name        : Swap Two Numbers
  Author      : Hussein Elsaka
  Version     :
  Copyright   : Your copyright notice
