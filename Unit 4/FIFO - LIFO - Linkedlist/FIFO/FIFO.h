@@ -8,7 +8,7 @@
 #ifndef FIFO_H_
 #define FIFO_H_
 
-typedef unsigned int FIFO_Element_t
+typedef unsigned int FIFO_Element_t;
 
 #ifndef NULL
 #define NULL 0

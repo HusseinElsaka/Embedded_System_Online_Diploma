@@ -8,7 +8,7 @@
 #ifndef LIFO_H_
 #define LIFO_H_
 
-typedef unsigned int LIFO_Element_t
+typedef unsigned int LIFO_Element_t;
 
 #define  
 
