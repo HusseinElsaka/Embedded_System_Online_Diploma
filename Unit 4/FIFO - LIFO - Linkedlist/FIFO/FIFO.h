@@ -8,7 +8,7 @@
 #ifndef FIFO_H_
 #define FIFO_H_
 
-#define FIFO_ELEMENT_TYPE unsigned int
+typedef unsigned int FIFO_Element_t
 
 #ifndef NULL
 #define NULL 0
@@ -16,9 +16,9 @@
 
 
 typedef struct {
-	FIFO_ELEMENT_TYPE* Base;
-	FIFO_ELEMENT_TYPE* Head;
-	FIFO_ELEMENT_TYPE* Tail;
+	FIFO_Element_t* Base;
+	FIFO_Element_t* Head;
+	FIFO_Element_t* Tail;
 	unsigned int Length;
 	unsigned int count;
 }FIFO_Buff_t;
@@ -38,7 +38,7 @@ typedef enum
 	Description : initialize the Queue
 
 */
-Buffer_status FIFO_Init (FIFO_Buff_t *pBuff, FIFO_ELEMENT_TYPE* Buffer, unsigned int BufferSize);
+Buffer_status FIFO_Init (FIFO_Buff_t *pBuff, FIFO_Element_t* Buffer, unsigned int BufferSize);
 
 
 /*
@@ -48,7 +48,7 @@ Buffer_status FIFO_Init (FIFO_Buff_t *pBuff, FIFO_ELEMENT_TYPE* Buffer, unsigned
 	post Conditions: the element will be store at the raer of the Queue
 
 */
-Buffer_status FIFO_Enqueue(FIFO_Buff_t *pBuff, FIFO_ELEMENT_TYPE e);
+Buffer_status FIFO_Enqueue(FIFO_Buff_t *pBuff, FIFO_Element_t e);
 
 
 /*
@@ -58,7 +58,7 @@ Buffer_status FIFO_Enqueue(FIFO_Buff_t *pBuff, FIFO_ELEMENT_TYPE e);
 	post Conditions: the element will be removed from the front of the Queue, and its value will be in element
 
 */
-Buffer_status FIFO_Dequeue(FIFO_Buff_t *pBuff, FIFO_ELEMENT_TYPE *pe);
+Buffer_status FIFO_Dequeue(FIFO_Buff_t *pBuff, FIFO_Element_t *pe);
 
 
 /*
@@ -109,6 +109,6 @@ Buffer_status FIFO_Clear (FIFO_Buff_t *pBuff);
 	post Conditions: function will be applied to all elements
 
 */
-Buffer_status FIFO_Traverse (FIFO_Buff_t *pBuff, void (*pf) (FIFO_ELEMENT_TYPE));
+Buffer_status FIFO_Traverse (FIFO_Buff_t *pBuff, void (*pf) (FIFO_Element_t));
 
 #endif /* FIFO_H_ */

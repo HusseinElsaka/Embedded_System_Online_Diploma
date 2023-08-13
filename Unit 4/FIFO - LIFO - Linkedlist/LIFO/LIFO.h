@@ -8,7 +8,9 @@
 #ifndef LIFO_H_
 #define LIFO_H_
 
-#define LIFO_ELEMENT_TYPE unsigned int
+typedef unsigned int LIFO_Element_t
+
+#define  
 
 #ifndef NULL
 #define NULL 0
@@ -18,8 +20,8 @@ typedef struct
 {
 	unsigned int Length;
 	unsigned int count;
-	LIFO_ELEMENT_TYPE* Base;
-	LIFO_ELEMENT_TYPE* Head;
+	LIFO_Element_t* Base;
+	LIFO_Element_t* Head;
 }LIFO_Buff_t;
 
 typedef enum
@@ -38,7 +40,7 @@ typedef enum
 	Description : initialize the Stack
 
 */
-Buffer_status LIFO_Init(LIFO_Buff_t *pBuf, LIFO_ELEMENT_TYPE* Buffer, unsigned int LIFO_size);
+Buffer_status LIFO_Init(LIFO_Buff_t *pBuf, LIFO_Element_t* Buffer, unsigned int LIFO_size);
 
 
 /*
@@ -48,7 +50,7 @@ Buffer_status LIFO_Init(LIFO_Buff_t *pBuf, LIFO_ELEMENT_TYPE* Buffer, unsigned i
 	post Conditions: the element will be store at the top of the stack
 
 */
-Buffer_status LIFO_Push(LIFO_Buff_t *pBuf, LIFO_ELEMENT_TYPE element);
+Buffer_status LIFO_Push(LIFO_Buff_t *pBuf, LIFO_Element_t element);
 
 /*
 	Function : LIFO_Pop
@@ -57,7 +59,7 @@ Buffer_status LIFO_Push(LIFO_Buff_t *pBuf, LIFO_ELEMENT_TYPE element);
 	post Conditions: the element will be removed from the top of the stack, and its value will be in element
 
 */
-Buffer_status LIFO_Pop(LIFO_Buff_t *pBuf, LIFO_ELEMENT_TYPE *pElement);
+Buffer_status LIFO_Pop(LIFO_Buff_t *pBuf, LIFO_Element_t *pElement);
 
 /*
 	Function : LIFO_Is_Empty
@@ -86,7 +88,7 @@ int LIFO_Is_Full (LIFO_Buff_t *pBuf);
 	post Conditions: get the element value of last value to ps and stack doesnt change
 
 */
-Buffer_status LIFO_Top (LIFO_Buff_t *pBuf, LIFO_ELEMENT_TYPE *pElement);
+Buffer_status LIFO_Top (LIFO_Buff_t *pBuf, LIFO_Element_t *pElement);
 
 /*
 	Function : LIFO_Size
@@ -113,6 +115,6 @@ Buffer_status LIFO_clear (LIFO_Buff_t *pBuf);
 	post Conditions: function will be applied to all elements
 
 */
-Buffer_status LIFO_traverse (LIFO_Buff_t *pBuf, void (*pf) (LIFO_ELEMENT_TYPE));
+Buffer_status LIFO_traverse (LIFO_Buff_t *pBuf, void (*pf) (LIFO_Element_t));
 
 #endif /* LIFO_H_ */

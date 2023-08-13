@@ -2,7 +2,7 @@
 
 
 
-Buffer_status LIFO_Init(LIFO_Buff_t *pBuf, LIFO_ELEMENT_TYPE* Buffer, unsigned int LIFO_size)
+Buffer_status LIFO_Init(LIFO_Buff_t *pBuf, LIFO_Element_t* Buffer, unsigned int LIFO_size)
 {
 	if(!pBuf || !pBuf->Head || !pBuf->Base)
 		return LIFO_NULL;
@@ -16,7 +16,7 @@ Buffer_status LIFO_Init(LIFO_Buff_t *pBuf, LIFO_ELEMENT_TYPE* Buffer, unsigned i
 }
 
 
-Buffer_status LIFO_Push(LIFO_Buff_t *pBuf, LIFO_ELEMENT_TYPE element)
+Buffer_status LIFO_Push(LIFO_Buff_t *pBuf, LIFO_Element_t element)
 {
 	if(!pBuf || !pBuf->Head || !pBuf->Base)
 		return LIFO_NULL;
@@ -32,7 +32,7 @@ Buffer_status LIFO_Push(LIFO_Buff_t *pBuf, LIFO_ELEMENT_TYPE element)
 }
 
 
-Buffer_status LIFO_Pop(LIFO_Buff_t *pBuf, LIFO_ELEMENT_TYPE *pElement)
+Buffer_status LIFO_Pop(LIFO_Buff_t *pBuf, LIFO_Element_t *pElement)
 {
 	if(!pBuf || !pBuf->Head || !pBuf->Base)
 		return LIFO_NULL;
@@ -68,7 +68,7 @@ int LIFO_Is_Full (LIFO_Buff_t *pBuf)
 
 
 
-Buffer_status LIFO_Top (LIFO_Buff_t *pBuf, LIFO_ELEMENT_TYPE *pElement)
+Buffer_status LIFO_Top (LIFO_Buff_t *pBuf, LIFO_Element_t *pElement)
 {
 	if(!pBuf || !pBuf->Head || !pBuf->Base)
 		return LIFO_NULL;
@@ -104,9 +104,9 @@ Buffer_status LIFO_clear (LIFO_Buff_t *pBuf)
 }
 
 
-Buffer_status LIFO_traverse (LIFO_Buff_t *pBuf, void (*pf) (LIFO_ELEMENT_TYPE))
+Buffer_status LIFO_traverse (LIFO_Buff_t *pBuf, void (*pf) (LIFO_Element_t))
 {
-	LIFO_ELEMENT_TYPE *i;
+	LIFO_Element_t *i;
 
 	if(!pBuf || !pBuf->Head || !pBuf->Base)
 		return LIFO_NULL;

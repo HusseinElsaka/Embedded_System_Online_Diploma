@@ -1,7 +1,7 @@
 #include "FIFO.h"
 
 
-Buffer_status FIFO_Init (FIFO_Buff_t *pBuff, FIFO_ELEMENT_TYPE* Buffer, unsigned int BufferSize)
+Buffer_status FIFO_Init (FIFO_Buff_t *pBuff, FIFO_Element_t* Buffer, unsigned int BufferSize)
 {
 	if(!pBuff || !Buffer)
 		return FIFO_NULL;
@@ -16,7 +16,7 @@ Buffer_status FIFO_Init (FIFO_Buff_t *pBuff, FIFO_ELEMENT_TYPE* Buffer, unsigned
 }
 
 
-Buffer_status FIFO_Enqueue(FIFO_Buff_t *pBuff, FIFO_ELEMENT_TYPE e)
+Buffer_status FIFO_Enqueue(FIFO_Buff_t *pBuff, FIFO_Element_t e)
 {
 	if(!pBuff || !pBuff->Base || !pBuff->Head || !pBuff->Tail)
 		return FIFO_NULL;
@@ -27,7 +27,7 @@ Buffer_status FIFO_Enqueue(FIFO_Buff_t *pBuff, FIFO_ELEMENT_TYPE e)
 	*(pBuff->Head) = e;
 	pBuff->count ++;
 
-	if(pBuff->Head == (pBuff->Base + (pBuff->Length * sizeof(FIFO_ELEMENT_TYPE))))
+	if(pBuff->Head == (pBuff->Base + (pBuff->Length * sizeof(FIFO_Element_t))))
 		pBuff->Head = pBuff->Base;
 	else
 		pBuff->Head ++;
@@ -37,7 +37,7 @@ Buffer_status FIFO_Enqueue(FIFO_Buff_t *pBuff, FIFO_ELEMENT_TYPE e)
 
 
 
-Buffer_status FIFO_Dequeue(FIFO_Buff_t *pBuff, FIFO_ELEMENT_TYPE *pe)
+Buffer_status FIFO_Dequeue(FIFO_Buff_t *pBuff, FIFO_Element_t *pe)
 {
 	if(!pBuff || !pBuff->Base || !pBuff->Head || !pBuff->Tail)
 		return FIFO_NULL;
@@ -48,7 +48,7 @@ Buffer_status FIFO_Dequeue(FIFO_Buff_t *pBuff, FIFO_ELEMENT_TYPE *pe)
 	*pe = *(pBuff->Tail);
 	pBuff->count--;
 
-	if(pBuff->Tail == (pBuff->Base + (pBuff->Length * sizeof(FIFO_ELEMENT_TYPE))))
+	if(pBuff->Tail == (pBuff->Base + (pBuff->Length * sizeof(FIFO_Element_t))))
 		pBuff->Tail = pBuff->Base;
 	else
 		pBuff->Tail ++;
@@ -97,7 +97,7 @@ Buffer_status FIFO_Clear (FIFO_Buff_t *pBuff)
 
 
 
-Buffer_status FIFO_Traverse (FIFO_Buff_t *pBuff, void (*pf) (FIFO_ELEMENT_TYPE))
+Buffer_status FIFO_Traverse (FIFO_Buff_t *pBuff, void (*pf) (FIFO_Element_t))
 {
 	if(!pBuff || !pBuff->Base || !pBuff->Head || !pBuff->Tail)
 		return FIFO_NULL;
@@ -106,12 +106,12 @@ Buffer_status FIFO_Traverse (FIFO_Buff_t *pBuff, void (*pf) (FIFO_ELEMENT_TYPE))
 		return FIFO_EMPTY;
 
 	int i;
-	FIFO_ELEMENT_TYPE *temp = pBuff->Tail;
+	FIFO_Element_t *temp = pBuff->Tail;
 
 	for(i = 0; i < pBuff->count; i++)
 	{
 		(*pf)(*temp);
-		if(temp == (pBuff->Base + (pBuff->Length * sizeof(FIFO_ELEMENT_TYPE))))
+		if(temp == (pBuff->Base + (pBuff->Length * sizeof(FIFO_Element_t))))
 			temp = pBuff->Base;
 		else
 			temp ++;
