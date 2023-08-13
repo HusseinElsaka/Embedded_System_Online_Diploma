@@ -96,6 +96,8 @@ int main ()
 	return 0;
 }
 
+
 ```
 # Picture
 ![image](https://github.com/HusseinElsaka/Embedded_System_Online_Diploma/assets/52578649/b594e052-668b-4bba-9f73-0b65c01f74e7)
+
