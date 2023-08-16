@@ -63,4 +63,6 @@ Linkedlist_statue Linkedlist_MiddleList(LinkedList_t *pl, List_Element_Type *pe)
 
 Linkedlist_statue Linkedlist_InnerLoop(LinkedList_t *pl);
 
+Linkedlist_statue Linkedlist_Reverse(LinkedList_t *pl);
+
 #endif /* LINKEDLIST_H_ */

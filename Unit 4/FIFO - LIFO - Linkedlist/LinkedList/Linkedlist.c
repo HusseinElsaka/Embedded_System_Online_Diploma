@@ -312,3 +312,22 @@ Linkedlist_statue Linkedlist_InnerLoop(LinkedList_t *pl)
 	return LINKEDLIST_NO_INNER_LOOP;
 }
 
+Linkedlist_statue Linkedlist_Reverse(LinkedList_t *pl)
+{
+	if(!pl)
+		return LINKEDLIST_NULL;
+
+	SDataNode *perv = NULL, *current = pl->head, *next = NULL;
+
+	while (current)
+	{
+		next = current->next;
+		current->next = perv;
+		perv = current;
+		current = next;
+	}
+
+	pl->head = perv;
+
+	return LINKEDLIST_NO_ERROR;
+}
