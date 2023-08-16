@@ -28,4 +28,7 @@ typedef enum
 	LINKEDLIST_OUT_OF_INDEX
 }Linkedlist_statue;
 
+
+Linkedlist_statue LinkedList_Init (LinkedList_t *pl);
+
 #endif /* LINKEDLIST_H_ */
