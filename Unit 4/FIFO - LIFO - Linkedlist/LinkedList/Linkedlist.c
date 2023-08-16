@@ -89,3 +89,43 @@ Linkedlist_statue LinkedList_Insert (LinkedList_t *pl, unsigned int position, Li
 
 	return LINKEDLIST_NO_ERROR;
 }
+
+
+Linkedlist_statue LinkedList_Delete(LinkedList_t *pl, unsigned int position, List_Element_Type *pe)
+{
+	if(!pl)
+		return LINKEDLIST_NULL;
+
+	if(LinkedList_Is_Empty(pl))
+		return LINKEDLIST_EMPTY;
+
+	if(position >= pl->size)
+		return LINKEDLIST_OUT_OF_INDEX;
+
+	SDataNode *current, *perv;
+	int i;
+
+	if(position == 0)
+	{
+		*pe = (pl->head->entry);
+		current = pl->head;
+		pl->head = pl->head->next;
+		free(current);
+	}
+	else
+	{
+		for(i = 0, current = pl->head; i < position - 1; i++)
+		{
+			current = current->next;
+		}
+		perv = current;
+		current = current->next;
+		perv->next = current->next;
+		free(current);
+	}
+	pl->size --;
+
+
+	return LINKEDLIST_NO_ERROR;
+}
+
