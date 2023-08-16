@@ -49,4 +49,6 @@ Linkedlist_statue LinkedList_Delete(LinkedList_t *pl, unsigned int position, Lis
 
 Linkedlist_statue LinkedList_Traverse (LinkedList_t* pl, void (*pf) (List_Element_Type* e) );
 
+Linkedlist_statue LinkedList_RetrieveList (LinkedList_t *pl, unsigned int position, List_Element_Type *pe);
+
 #endif /* LINKEDLIST_H_ */

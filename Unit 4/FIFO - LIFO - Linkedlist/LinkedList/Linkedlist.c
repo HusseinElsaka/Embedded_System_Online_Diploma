@@ -129,6 +129,7 @@ Linkedlist_statue LinkedList_Delete(LinkedList_t *pl, unsigned int position, Lis
 	return LINKEDLIST_NO_ERROR;
 }
 
+
 Linkedlist_statue LinkedList_Traverse (LinkedList_t* pl, void (*pf) (List_Element_Type* e) )
 {
 	if(!pl)
@@ -145,6 +146,34 @@ Linkedlist_statue LinkedList_Traverse (LinkedList_t* pl, void (*pf) (List_Elemen
 
 	return LINKEDLIST_NO_ERROR;
 
+}
+
+
+Linkedlist_statue LinkedList_RetrieveList (LinkedList_t *pl, unsigned int position, List_Element_Type *pe)
+{
+	if(!pl)
+		return LINKEDLIST_NULL;
+
+	if(LinkedList_Is_Empty(pl))
+		return LINKEDLIST_EMPTY;
+
+	if(position >= pl->size)
+		return LINKEDLIST_OUT_OF_INDEX;
+
+	int i;
+	SDataNode* temp;
+
+	for(i = 0,temp = pl->head; i < position; i++)
+	{
+		if(!temp)
+			return LINKEDLIST_NULL;
+
+		temp = temp->next;
+	}
+	*pe = (temp->entry);
+
+
+	return LINKEDLIST_NO_ERROR;
 }
 
 
