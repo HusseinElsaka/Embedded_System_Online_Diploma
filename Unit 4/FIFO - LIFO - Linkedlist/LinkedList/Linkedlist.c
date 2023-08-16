@@ -24,3 +24,10 @@ int LinkedList_Is_Full (LinkedList_t *pl)
 	return 0;
 }
 
+
+int LinkedList_Size (LinkedList_t *pl)
+{
+	return pl->size;
+}
+
+
