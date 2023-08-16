@@ -47,4 +47,6 @@ Linkedlist_statue LinkedList_Insert (LinkedList_t *pl, unsigned int position, Li
 
 Linkedlist_statue LinkedList_Delete(LinkedList_t *pl, unsigned int position, List_Element_Type *pe);
 
+Linkedlist_statue LinkedList_Traverse (LinkedList_t* pl, void (*pf) (List_Element_Type* e) );
+
 #endif /* LINKEDLIST_H_ */

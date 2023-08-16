@@ -129,3 +129,22 @@ Linkedlist_statue LinkedList_Delete(LinkedList_t *pl, unsigned int position, Lis
 	return LINKEDLIST_NO_ERROR;
 }
 
+Linkedlist_statue LinkedList_Traverse (LinkedList_t* pl, void (*pf) (List_Element_Type* e) )
+{
+	if(!pl)
+		return LINKEDLIST_NULL;
+
+	if(LinkedList_Is_Empty(pl))
+		return LINKEDLIST_EMPTY;
+
+	SDataNode* temp;
+	for(temp = pl->head; temp ; temp = temp->next)
+	{
+		(*pf)(&(temp->entry));
+	}
+
+	return LINKEDLIST_NO_ERROR;
+
+}
+
+
