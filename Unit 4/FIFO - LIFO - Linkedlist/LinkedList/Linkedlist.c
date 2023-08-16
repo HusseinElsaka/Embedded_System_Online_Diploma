@@ -244,3 +244,23 @@ Linkedlist_statue LinkedList_RetrieveList_FromBack (LinkedList_t *pl, unsigned i
 	return LINKEDLIST_NO_ERROR;
 }
 
+Linkedlist_statue Linkedlist_MiddleList(LinkedList_t *pl, List_Element_Type *pe)
+{
+	if(!pl)
+		return LINKEDLIST_NULL;
+
+	SDataNode *fastpp, *slowpp;
+	fastpp = pl->head;
+	slowpp = pl->head;
+	while(fastpp)
+	{
+		fastpp = fastpp->next;
+		if(!fastpp)
+			break;
+		fastpp = fastpp->next;
+		slowpp = slowpp->next;
+	}
+	*(pe) = (slowpp->entry);
+
+	return LINKEDLIST_NO_ERROR;
+}
