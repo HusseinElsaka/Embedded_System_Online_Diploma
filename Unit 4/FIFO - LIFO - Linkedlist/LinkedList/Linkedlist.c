@@ -17,3 +17,10 @@ int LinkedList_Is_Empty (LinkedList_t *pl)
 }
 
 
+int LinkedList_Is_Full (LinkedList_t *pl)
+{
+	if(!pl)
+		return LINKEDLIST_NULL;
+	return 0;
+}
+
