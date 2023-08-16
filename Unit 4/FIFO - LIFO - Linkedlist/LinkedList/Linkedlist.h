@@ -40,4 +40,6 @@ int LinkedList_Is_Full (LinkedList_t *pl);
 
 int LinkedList_Size (LinkedList_t *pl);
 
+
+Linkedlist_statue LinkedList_Destroy (LinkedList_t *pl);
 #endif /* LINKEDLIST_H_ */

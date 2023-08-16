@@ -31,3 +31,21 @@ int LinkedList_Size (LinkedList_t *pl)
 }
 
 
+Linkedlist_statue LinkedList_Destroy (LinkedList_t *pl)
+{
+	if(!pl)
+		return LINKEDLIST_NULL;
+
+	if(LinkedList_Is_Empty(pl))
+		return LINKEDLIST_EMPTY;
+
+	while(pl->head)
+	{
+		SDataNode* temp = pl->head;
+		pl->head = pl->head->next;
+		free(temp);
+	}
+	pl->size = 0;
+
+	return LINKEDLIST_NO_ERROR;
+}
