@@ -202,3 +202,45 @@ Linkedlist_statue LinkedList_ReplaceListElement (LinkedList_t *pl, unsigned int 
 
 	return LINKEDLIST_NO_ERROR;
 }
+
+Linkedlist_statue LinkedList_RetrieveList_FromBack (LinkedList_t *pl, unsigned int position, List_Element_Type *pe)
+{
+	if(!pl)
+		return LINKEDLIST_NULL;
+
+	if(LinkedList_Is_Empty(pl))
+		return LINKEDLIST_EMPTY;
+
+	if(position >= pl->size)
+		return LINKEDLIST_OUT_OF_INDEX;
+
+	/*
+	// Method 1
+	unsigned int new_position = pl->size - position - 1;
+
+	LinkedList_RetrieveList(pl, new_position, pe);
+	*/
+
+	// Method 2
+	unsigned int i = 0;
+	SDataNode *selected = pl->head, *iterator = pl->head;
+
+	for(i = 0; iterator; i++)
+	{
+		if(i <= position)
+		{
+			iterator = iterator->next;
+		}
+		else
+		{
+			iterator = iterator->next;
+			selected = selected->next;
+		}
+	}
+
+	*(pe) = (selected->entry);
+
+
+	return LINKEDLIST_NO_ERROR;
+}
+

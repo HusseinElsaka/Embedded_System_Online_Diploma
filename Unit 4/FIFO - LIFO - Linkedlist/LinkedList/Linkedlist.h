@@ -53,4 +53,6 @@ Linkedlist_statue LinkedList_RetrieveList (LinkedList_t *pl, unsigned int positi
 
 Linkedlist_statue LinkedList_ReplaceListElement (LinkedList_t *pl, unsigned int position, List_Element_Type e);
 
+Linkedlist_statue LinkedList_RetrieveList_FromBack (LinkedList_t *pl, unsigned int position, List_Element_Type *pe);
+
 #endif /* LINKEDLIST_H_ */
