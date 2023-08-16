@@ -42,4 +42,6 @@ int LinkedList_Size (LinkedList_t *pl);
 
 
 Linkedlist_statue LinkedList_Destroy (LinkedList_t *pl);
+
+Linkedlist_statue LinkedList_Insert (LinkedList_t *pl, unsigned int position, List_Element_Type e);
 #endif /* LINKEDLIST_H_ */

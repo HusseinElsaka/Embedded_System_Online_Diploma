@@ -49,3 +49,43 @@ Linkedlist_statue LinkedList_Destroy (LinkedList_t *pl)
 
 	return LINKEDLIST_NO_ERROR;
 }
+
+
+Linkedlist_statue LinkedList_Insert (LinkedList_t *pl, unsigned int position, List_Element_Type e)
+{
+	if(!pl)
+		return LINKEDLIST_NULL;
+
+	if(position > pl->size)
+		return LINKEDLIST_OUT_OF_INDEX;
+
+	SDataNode* NewElement = (SDataNode*) malloc(sizeof(SDataNode));
+
+	if(!NewElement)
+		return LINKEDLIST_MEMORY_ERROR;
+
+	NewElement->entry = e;
+	NewElement->next = NULL;
+
+	if(position == 0)
+	{
+		NewElement->next = pl->head;
+		pl->head = NewElement;
+	}
+	else
+	{
+		int i;
+		SDataNode* temp;
+
+		for(i = 0,temp = pl->head; i < position - 1; i++)
+		{
+			temp = temp->next;
+		}
+
+		NewElement->next = temp->next;
+		temp->next = NewElement;
+	}
+	pl->size ++;
+
+	return LINKEDLIST_NO_ERROR;
+}
