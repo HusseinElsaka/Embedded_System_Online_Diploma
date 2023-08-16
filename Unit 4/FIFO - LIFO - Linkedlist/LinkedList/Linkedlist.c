@@ -177,3 +177,28 @@ Linkedlist_statue LinkedList_RetrieveList (LinkedList_t *pl, unsigned int positi
 }
 
 
+Linkedlist_statue LinkedList_ReplaceListElement (LinkedList_t *pl, unsigned int position, List_Element_Type e)
+{
+	if(!pl)
+		return LINKEDLIST_NULL;
+
+	if(LinkedList_Is_Empty(pl))
+		return LINKEDLIST_EMPTY;
+
+	if(position >= pl->size)
+		return LINKEDLIST_OUT_OF_INDEX;
+
+	int i;
+	SDataNode* temp;
+
+	for(i = 0,temp = pl->head; i < position; i++)
+	{
+		if(!temp)
+			return LINKEDLIST_NULL;
+
+		temp = temp->next;
+	}
+	(temp->entry) = e;
+
+	return LINKEDLIST_NO_ERROR;
+}

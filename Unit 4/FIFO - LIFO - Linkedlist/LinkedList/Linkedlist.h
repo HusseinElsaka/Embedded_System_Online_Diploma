@@ -51,4 +51,6 @@ Linkedlist_statue LinkedList_Traverse (LinkedList_t* pl, void (*pf) (List_Elemen
 
 Linkedlist_statue LinkedList_RetrieveList (LinkedList_t *pl, unsigned int position, List_Element_Type *pe);
 
+Linkedlist_statue LinkedList_ReplaceListElement (LinkedList_t *pl, unsigned int position, List_Element_Type e);
+
 #endif /* LINKEDLIST_H_ */
