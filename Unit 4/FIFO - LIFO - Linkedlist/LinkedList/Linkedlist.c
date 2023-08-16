@@ -9,3 +9,11 @@ Linkedlist_statue LinkedList_Init (LinkedList_t *pl)
 
 	return LINKEDLIST_NO_ERROR;
 }
+
+
+int LinkedList_Is_Empty (LinkedList_t *pl)
+{
+	return pl->size == 0;
+}
+
+

@@ -31,4 +31,8 @@ typedef enum
 
 Linkedlist_statue LinkedList_Init (LinkedList_t *pl);
 
+
+int LinkedList_Is_Empty (LinkedList_t *pl);
+
+
 #endif /* LINKEDLIST_H_ */
