@@ -291,3 +291,24 @@ Linkedlist_statue Linkedlist_MiddleList(LinkedList_t *pl, List_Element_Type *pe)
 
 	return LINKEDLIST_NO_ERROR;
 }
+
+Linkedlist_statue Linkedlist_InnerLoop(LinkedList_t *pl)
+{
+	SDataNode *fastpp, *slowpp;
+	fastpp = pl->head;
+	slowpp = pl->head;
+	while(fastpp)
+	{
+		fastpp = fastpp->next;
+		if(!fastpp)
+			break;
+		fastpp = fastpp->next;
+		slowpp = slowpp->next;
+
+		if(fastpp == slowpp)
+			return LINKEDLIST_INNER_LOOP;
+	}
+
+	return LINKEDLIST_NO_INNER_LOOP;
+}
+
