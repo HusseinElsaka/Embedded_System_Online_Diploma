@@ -55,6 +55,10 @@ Linkedlist_statue LinkedList_ReplaceListElement (LinkedList_t *pl, unsigned int 
 
 Linkedlist_statue LinkedList_RetrieveList_FromBack (LinkedList_t *pl, unsigned int position, List_Element_Type *pe);
 
+int Linkedlist_Length_Iterative(LinkedList_t *pl);
+
+int Linkedlist_Length_Recursive(SDataNode *pl);
+
 Linkedlist_statue Linkedlist_MiddleList(LinkedList_t *pl, List_Element_Type *pe);
 
 #endif /* LINKEDLIST_H_ */

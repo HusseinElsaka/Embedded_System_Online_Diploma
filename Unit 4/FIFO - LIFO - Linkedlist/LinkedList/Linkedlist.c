@@ -244,6 +244,33 @@ Linkedlist_statue LinkedList_RetrieveList_FromBack (LinkedList_t *pl, unsigned i
 	return LINKEDLIST_NO_ERROR;
 }
 
+
+int Linkedlist_Length_Iterative(LinkedList_t *pl)
+{
+
+	unsigned int count = 0;
+	SDataNode *selected = pl->head;
+
+	while(selected)
+	{
+		selected = selected->next;
+		count ++;
+	}
+
+	return count;
+}
+
+int Linkedlist_Length_Recursive(SDataNode *pl)
+{
+	if(!pl)
+	{
+		return 0;
+	}
+
+	return (1 + (Linkedlist_Length_Recursive(pl->next)));
+}
+
+
 Linkedlist_statue Linkedlist_MiddleList(LinkedList_t *pl, List_Element_Type *pe)
 {
 	if(!pl)
